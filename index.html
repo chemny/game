@@ -162,43 +162,6 @@
         }
         
         /* 筛选与分类 */
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 30px 0;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .filter-label {
-            font-weight: 600;
-            margin-right: 10px;
-            color: var(--dark);
-        }
-        
-        .filter-btn {
-            padding: 8px 16px;
-            border: 1px solid var(--border);
-            background-color: white;
-            color: var(--gray);
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-        }
-        
-        .filter-btn.active {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        .filter-btn:hover:not(.active) {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-        
         .category-tabs {
             display: flex;
             border-bottom: 1px solid var(--border);
@@ -647,28 +610,19 @@
     </div>
 
     <div class="container">
-        <div class="filters">
-            <span class="filter-label">筛选:</span>
-            <button class="filter-btn active">全部</button>
-            <button class="filter-btn">免费</button>
-            <button class="filter-btn">付费</button>
-            <button class="filter-btn">免费增值</button>
-            <button class="filter-btn">新品</button>
-            <button class="filter-btn">热门</button>
-        </div>
-        
         <div class="category-tabs">
             <a href="#all" class="category-tab active">全部</a>
-            <a href="#chat" class="category-tab">聊天对话</a>
+            <a href="#hot" class="category-tab">热门工具</a>
+            <a href="#chat" class="category-tab">聊天工具</a>
             <a href="#image" class="category-tab">图像生成</a>
-            <a href="#text" class="category-tab">文本处理</a>
             <a href="#video" class="category-tab">视频创作</a>
-            <a href="#audio" class="category-tab">语音合成</a>
+            <a href="#text" class="category-tab">内容创作</a>
+            <a href="#audio" class="category-tab">语音音频</a>
             <a href="#dev" class="category-tab">开发工具</a>
             <a href="#marketing" class="category-tab">营销工具</a>
-            <a href="#design" class="category-tab">设计工具</a>
             <a href="#productivity" class="category-tab">生产力</a>
             <a href="#education" class="category-tab">学习教育</a>
+            <a href="#design" class="category-tab">设计工具</a>
         </div>
         
         <div id="hot" class="section-header">
@@ -897,6 +851,183 @@
                 </div>
             </div>
         </div>
+
+        <div id="chat" class="section-container">
+    <div class="section-header">
+        <h2 class="section-title">聊天工具</h2>
+        <p class="section-description">智能对话和语言模型应用</p>
+    </div>
+
+    <div class="tools-grid">
+        <!-- ChatGPT -->
+        <div class="tool-card">
+            <div class="card-header">
+                <div class="tool-logo"><span>C</span></div>
+                <div class="tool-info">
+                    <h3 class="tool-name">ChatGPT</h3>
+                    <div class="tool-pricing">
+                        <span class="pricing-badge freemium">免费增值</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="tool-description">OpenAI开发的大语言模型，可进行自然对话、回答问题、写作和编程等多种任务。</p>
+                <div class="tool-tags">
+                    <span class="tool-tag">AI对话</span>
+                    <span class="tool-tag">写作助手</span>
+                    <span class="tool-tag">编程辅助</span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="https://chat.openai.com" target="_blank" class="visit-btn">访问网站</a>
+                <div class="card-meta">
+                    <div class="meta-item"><span>⭐</span><span>4.9</span></div>
+                    <div class="meta-item"><span>👁️</span><span>100k+</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Claude -->
+        <div class="tool-card">
+            <div class="card-header">
+                <div class="tool-logo"><span>C</span></div>
+                <div class="tool-info">
+                    <h3 class="tool-name">Claude</h3>
+                    <div class="tool-pricing">
+                        <span class="pricing-badge freemium">免费增值</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="tool-description">Anthropic开发的AI助手，擅长分析、写作和编程，支持更长的上下文和文件处理。</p>
+                <div class="tool-tags">
+                    <span class="tool-tag">智能助手</span>
+                    <span class="tool-tag">长文本处理</span>
+                    <span class="tool-tag">专业分析</span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="https://claude.ai" target="_blank" class="visit-btn">访问网站</a>
+                <div class="card-meta">
+                    <div class="meta-item"><span>⭐</span><span>4.8</span></div>
+                    <div class="meta-item"><span>👁️</span><span>50k+</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gemini -->
+        <div class="tool-card">
+            <div class="card-header">
+                <div class="tool-logo"><span>G</span></div>
+                <div class="tool-info">
+                    <h3 class="tool-name">Gemini</h3>
+                    <div class="tool-pricing">
+                        <span class="pricing-badge free">免费</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="tool-description">Google最新的AI模型，支持多模态交互，可以理解图像、音频和文本，提供准确的回答。</p>
+                <div class="tool-tags">
+                    <span class="tool-tag">多模态</span>
+                    <span class="tool-tag">图文理解</span>
+                    <span class="tool-tag">知识问答</span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="https://gemini.google.com" target="_blank" class="visit-btn">访问网站</a>
+                <div class="card-meta">
+                    <div class="meta-item"><span>⭐</span><span>4.7</span></div>
+                    <div class="meta-item"><span>👁️</span><span>40k+</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Poe -->
+        <div class="tool-card">
+            <div class="card-header">
+                <div class="tool-logo"><span>P</span></div>
+                <div class="tool-info">
+                    <h3 class="tool-name">Poe</h3>
+                    <div class="tool-pricing">
+                        <span class="pricing-badge freemium">免费增值</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="tool-description">集成多个AI模型的聊天平台，包括ChatGPT、Claude等，支持自定义提示词和对话记录保存。</p>
+                <div class="tool-tags">
+                    <span class="tool-tag">多模型集成</span>
+                    <span class="tool-tag">聊天助手</span>
+                    <span class="tool-tag">知识问答</span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="https://poe.com" target="_blank" class="visit-btn">访问网站</a>
+                <div class="card-meta">
+                    <div class="meta-item"><span>⭐</span><span>4.7</span></div>
+                    <div class="meta-item"><span>👁️</span><span>30k+</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Character.ai -->
+        <div class="tool-card">
+            <div class="card-header">
+                <div class="tool-logo"><span>C</span></div>
+                <div class="tool-info">
+                    <h3 class="tool-name">Character.ai</h3>
+                    <div class="tool-pricing">
+                        <span class="pricing-badge freemium">免费增值</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="tool-description">AI角色扮演聊天平台，可与各种预设角色进行对话，支持创建自定义角色，适合娱乐和学习。</p>
+                <div class="tool-tags">
+                    <span class="tool-tag">角色扮演</span>
+                    <span class="tool-tag">娱乐聊天</span>
+                    <span class="tool-tag">创意对话</span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="https://character.ai" target="_blank" class="visit-btn">访问网站</a>
+                <div class="card-meta">
+                    <div class="meta-item"><span>⭐</span><span>4.6</span></div>
+                    <div class="meta-item"><span>👁️</span><span>25k+</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perplexity -->
+        <div class="tool-card">
+            <div class="card-header">
+                <div class="tool-logo"><span>P</span></div>
+                <div class="tool-info">
+                    <h3 class="tool-name">Perplexity</h3>
+                    <div class="tool-pricing">
+                        <span class="pricing-badge freemium">免费增值</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="tool-description">基于实时信息的AI问答工具，提供准确的搜索和引用来源，适合研究和学习使用。</p>
+                <div class="tool-tags">
+                    <span class="tool-tag">实时搜索</span>
+                    <span class="tool-tag">知识问答</span>
+                    <span class="tool-tag">研究助手</span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="https://www.perplexity.ai" target="_blank" class="visit-btn">访问网站</a>
+                <div class="card-meta">
+                    <div class="meta-item"><span>⭐</span><span>4.8</span></div>
+                    <div class="meta-item"><span>👁️</span><span>20k+</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         
         <div id="image" class="section-header">
             <h2 class="section-title">图像生成工具</h2>

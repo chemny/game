@@ -1,5 +1,15 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Sitemap: https://yourdomain.com/sitemap.xml 
+Allow: /#hot
+Allow: /#chat
+Allow: /#image
+Allow: /#video
+Allow: /#text
+Allow: /#audio
+Allow: /#dev
+Allow: /#marketing
+Allow: /#productivity
+Allow: /#education
+Allow: /#design
+
+Sitemap: https://betasai.com/sitemap.xml 
