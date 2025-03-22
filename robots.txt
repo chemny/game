@@ -1,15 +1,20 @@
 User-agent: *
 Allow: /
-Allow: /#hot
-Allow: /#chat
-Allow: /#image
-Allow: /#video
-Allow: /#text
-Allow: /#audio
-Allow: /#dev
-Allow: /#marketing
-Allow: /#productivity
-Allow: /#education
-Allow: /#design
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
 
-Sitemap: https://betasai.com/sitemap.xml 
+# Allow search engine crawlers
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: Baiduspider
+Allow: /
+User-agent: Sogou spider
+Allow: /
+User-agent: 360Spider
+Allow: /
+
+# Sitemap
+Sitemap: https://www.betasai.com/sitemap.xml 

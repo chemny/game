@@ -1,53 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- 主页 -->
     <url>
-        <loc>https://betasai.com/</loc>
-        <lastmod>2024-03-20</lastmod>
-        <changefreq>weekly</changefreq>
+        <loc>https://www.betasai.com/</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
+
+    <!-- 工具类别页面 -->
     <url>
-        <loc>https://betasai.com/#hot</loc>
+        <loc>https://www.betasai.com/#chat</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#chat</loc>
+        <loc>https://www.betasai.com/#image</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#image</loc>
+        <loc>https://www.betasai.com/#text</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#video</loc>
+        <loc>https://www.betasai.com/#audio</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#text</loc>
+        <loc>https://www.betasai.com/#dev</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#audio</loc>
+        <loc>https://www.betasai.com/#education</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#dev</loc>
+        <loc>https://www.betasai.com/#design</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#marketing</loc>
+        <loc>https://www.betasai.com/#marketing</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#productivity</loc>
+        <loc>https://www.betasai.com/#video</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
+
+    <!-- 热门和新工具页面 -->
     <url>
-        <loc>https://betasai.com/#education</loc>
-        <priority>0.9</priority>
+        <loc>https://www.betasai.com/#hot</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://betasai.com/#design</loc>
-        <priority>0.9</priority>
+        <loc>https://www.betasai.com/#new</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 其他重要页面 -->
+    <url>
+        <loc>https://www.betasai.com/#submit</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.betasai.com/#about</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.betasai.com/#contact</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.betasai.com/#privacy</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.betasai.com/#terms</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
 </urlset> 
