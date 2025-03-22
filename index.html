@@ -220,6 +220,7 @@
             color: var(--gray);
             transition: all 0.2s;
             border-bottom: 2px solid transparent;
+            text-decoration: none; /* 添加这行 */
         }
         
         .category-tab.active {
@@ -624,7 +625,7 @@
     <div class="container">
         <div class="hero">
             <h1 class="hero-title">发现最适合你的AI工具</h1>
-            <p class="hero-description">我们精选了50+优质AI工具，帮助你提高工作效率、激发创意、解决问题。</p>
+            <p class="hero-description">我们精选了500+优质AI工具，帮助你提高工作效率、激发创意、解决问题。</p>
             
             <div class="search-box">
                 <input type="text" placeholder="搜索AI工具...">
@@ -633,7 +634,7 @@
             
             <div class="stats">
                 <div class="stat-item">
-                    <span class="stat-number">50+</span> AI工具
+                    <span class="stat-number">500+</span> AI工具
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">10+</span> 分类
@@ -657,20 +658,20 @@
         </div>
         
         <div class="category-tabs">
-            <div class="category-tab active">全部</div>
-            <div class="category-tab">聊天对话</div>
-            <div class="category-tab">图像生成</div>
-            <div class="category-tab">文本处理</div>
-            <div class="category-tab">视频创作</div>
-            <div class="category-tab">语音合成</div>
-            <div class="category-tab">开发工具</div>
-            <div class="category-tab">营销工具</div>
-            <div class="category-tab">设计工具</div>
-            <div class="category-tab">生产力</div>
-            <div class="category-tab">学习教育</div>
+            <a href="#all" class="category-tab active">全部</a>
+            <a href="#chat" class="category-tab">聊天对话</a>
+            <a href="#image" class="category-tab">图像生成</a>
+            <a href="#text" class="category-tab">文本处理</a>
+            <a href="#video" class="category-tab">视频创作</a>
+            <a href="#audio" class="category-tab">语音合成</a>
+            <a href="#dev" class="category-tab">开发工具</a>
+            <a href="#marketing" class="category-tab">营销工具</a>
+            <a href="#design" class="category-tab">设计工具</a>
+            <a href="#productivity" class="category-tab">生产力</a>
+            <a href="#education" class="category-tab">学习教育</a>
         </div>
         
-        <div class="section-header">
+        <div id="hot" class="section-header">
             <h2 class="section-title">热门AI工具</h2>
             <p class="section-description">这些是用户评价最高、使用最多的AI工具</p>
         </div>
@@ -699,7 +700,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://chat.openai.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -736,7 +737,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.midjourney.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -773,7 +774,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://claude.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -809,7 +810,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://gemini.google.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -845,7 +846,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://openai.com/dall-e-3" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -882,7 +883,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://github.com/features/copilot" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -897,7 +898,7 @@
             </div>
         </div>
         
-        <div class="section-header">
+        <div id="image" class="section-header">
             <h2 class="section-title">图像生成工具</h2>
             <p class="section-description">将你的创意转化为视觉作品的AI工具</p>
         </div>
@@ -925,7 +926,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://stability.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -961,7 +962,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://leonardo.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -997,7 +998,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://runway.ml" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1034,7 +1035,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.adobe.com/products/firefly.html" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1070,7 +1071,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.canva.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1106,7 +1107,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://ideogram.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1121,7 +1122,7 @@
             </div>
         </div>
         
-        <div class="section-header">
+        <div id="video" class="section-header">
             <h2 class="section-title">视频创作工具</h2>
             <p class="section-description">AI驱动的视频制作和编辑工具</p>
         </div>
@@ -1150,7 +1151,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.synthesia.io" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1186,7 +1187,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.d-id.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1222,7 +1223,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://lumen5.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1259,7 +1260,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://openai.com/sora" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1295,7 +1296,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.capcut.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1331,7 +1332,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.descript.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1346,7 +1347,7 @@
             </div>
         </div>
         
-        <div class="section-header">
+        <div id="text" class="section-header">
             <h2 class="section-title">内容创作工具</h2>
             <p class="section-description">AI驱动的文本创作和编辑助手</p>
         </div>
@@ -1374,7 +1375,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.jasper.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1410,7 +1411,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.copy.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1446,7 +1447,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.grammarly.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1482,7 +1483,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.notion.so" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1518,7 +1519,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://quillbot.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1555,7 +1556,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://writer.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1570,7 +1571,7 @@
             </div>
         </div>
         
-        <div class="section-header">
+        <div id="audio" class="section-header">
             <h2 class="section-title">语音和音频工具</h2>
             <p class="section-description">AI驱动的语音合成和音频处理工具</p>
         </div>
@@ -1598,7 +1599,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://elevenlabs.io" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1634,7 +1635,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://murf.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1670,7 +1671,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://play.ht" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1707,7 +1708,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.resemble.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1743,7 +1744,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://speechify.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1779,7 +1780,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://podcast.adobe.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1794,7 +1795,7 @@
             </div>
         </div>
         
-        <div class="section-header">
+        <div id="dev" class="section-header">
             <h2 class="section-title">开发工具</h2>
             <p class="section-description">面向开发者的AI编程和自动化工具</p>
         </div>
@@ -1822,7 +1823,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://huggingface.co" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1858,7 +1859,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://replit.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1894,7 +1895,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.tabnine.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1930,7 +1931,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://sdk.vercel.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -1967,7 +1968,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.langchain.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2003,7 +2004,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.pinecone.io" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2018,159 +2019,7 @@
             </div>
         </div>
         
-        <div class="section-header">
-            <h2 class="section-title">搜索和研究工具</h2>
-            <p class="section-description">AI驱动的信息获取和研究助手</p>
-        </div>
-        
-        <div class="tools-grid">
-            <!-- 37 -->
-            <div class="tool-card">
-                <div class="badge trending">趋势</div>
-                <div class="card-header">
-                    <div class="tool-logo">
-                        <span>P</span>
-                    </div>
-                    <div class="tool-info">
-                        <h3 class="tool-name">Perplexity AI</h3>
-                        <div class="tool-pricing">
-                            <span class="pricing-badge freemium">免费增值</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="tool-description">AI驱动的搜索引擎，提供具有引用来源的对话式回答，整合多个信息源帮助用户深入了解话题。</p>
-                    <div class="tool-tags">
-                        <span class="tool-tag">搜索引擎</span>
-                        <span class="tool-tag">研究助手</span>
-                        <span class="tool-tag">信息获取</span>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
-                    <div class="card-meta">
-                        <div class="meta-item">
-                            <span>⭐</span>
-                            <span>4.8</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👁️</span>
-                            <span>14k+</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 38 -->
-            <div class="tool-card">
-                <div class="card-header">
-                    <div class="tool-logo">
-                        <span>Y</span>
-                    </div>
-                    <div class="tool-info">
-                        <h3 class="tool-name">You.com</h3>
-                        <div class="tool-pricing">
-                            <span class="pricing-badge free">免费</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="tool-description">集成AI聊天功能的搜索引擎，结合传统网页搜索和AI回答，提供个性化的搜索体验。</p>
-                    <div class="tool-tags">
-                        <span class="tool-tag">搜索引擎</span>
-                        <span class="tool-tag">AI聊天</span>
-                        <span class="tool-tag">个性化</span>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
-                    <div class="card-meta">
-                        <div class="meta-item">
-                            <span>⭐</span>
-                            <span>4.5</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👁️</span>
-                            <span>9k+</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 39 -->
-            <div class="tool-card">
-                <div class="card-header">
-                    <div class="tool-logo">
-                        <span>E</span>
-                    </div>
-                    <div class="tool-info">
-                        <h3 class="tool-name">Elicit</h3>
-                        <div class="tool-pricing">
-                            <span class="pricing-badge freemium">免费增值</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="tool-description">AI研究助手，帮助查找、分析和总结科学文献，自动生成摘要和关键结论，加速研究过程。</p>
-                    <div class="tool-tags">
-                        <span class="tool-tag">研究工具</span>
-                        <span class="tool-tag">学术</span>
-                        <span class="tool-tag">文献分析</span>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
-                    <div class="card-meta">
-                        <div class="meta-item">
-                            <span>⭐</span>
-                            <span>4.7</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👁️</span>
-                            <span>6k+</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 40 -->
-            <div class="tool-card">
-                <div class="card-header">
-                    <div class="tool-logo">
-                        <span>C</span>
-                    </div>
-                    <div class="tool-info">
-                        <h3 class="tool-name">Consensus</h3>
-                        <div class="tool-pricing">
-                            <span class="pricing-badge freemium">免费增值</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="tool-description">AI驱动的科学搜索引擎，汇总来自数百万学术文章的科学发现，并提供文章的关键结论。</p>
-                    <div class="tool-tags">
-                        <span class="tool-tag">科学研究</span>
-                        <span class="tool-tag">学术搜索</span>
-                        <span class="tool-tag">文献综述</span>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
-                    <div class="card-meta">
-                        <div class="meta-item">
-                            <span>⭐</span>
-                            <span>4.6</span>
-                        </div>
-                        <div class="meta-item">
-                            <span>👁️</span>
-                            <span>5k+</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section-header">
+        <div id="marketing" class="section-header">
             <h2 class="section-title">商业和营销工具</h2>
             <p class="section-description">提升业务运营和营销效率的AI工具</p>
         </div>
@@ -2198,7 +2047,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.adcreative.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2234,7 +2083,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.copy.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2270,7 +2119,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.frase.io" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2306,7 +2155,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://surferseo.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2319,9 +2168,66 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 营销工具5 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>S</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Semrush AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI驱动的全能营销工具套件，提供SEO分析、内容营销、市场调研和竞争分析等功能，助力数字营销策略制定。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">SEO</span>
+                        <span class="tool-tag">市场分析</span>
+                        <span class="tool-tag">竞争情报</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.semrush.com" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.8</span></div>
+                        <div class="meta-item"><span>👁️</span><span>15k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 营销工具6 -->
+            <div class="tool-card">
+                <div class="badge new">新品</div>
+                <div class="card-header">
+                    <div class="tool-logo"><span>M</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">MarketMuse</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI内容规划和优化平台，通过数据分析提供内容策略建议，帮助创建高质量的SEO友好内容。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">内容策略</span>
+                        <span class="tool-tag">SEO优化</span>
+                        <span class="tool-tag">内容规划</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.marketmuse.com" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.7</span></div>
+                        <div class="meta-item"><span>👁️</span><span>9k+</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <div class="section-header">
+        <div id="productivity" class="section-header">
             <h2 class="section-title">生产力工具</h2>
             <p class="section-description">提高个人和团队工作效率的AI工具</p>
         </div>
@@ -2349,7 +2255,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://otter.ai" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2385,7 +2291,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.taskade.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2421,7 +2327,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.motion.app" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2458,7 +2364,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.raycast.com" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2494,7 +2400,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.notion.so" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2530,7 +2436,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="#" class="visit-btn">访问网站</a>
+                    <a href="https://www.deepl.com/write" class="visit-btn" target="_blank">访问网站</a>
                     <div class="card-meta">
                         <div class="meta-item">
                             <span>⭐</span>
@@ -2540,6 +2446,359 @@
                             <span>👁️</span>
                             <span>9k+</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="education" class="section-header">
+            <h2 class="section-title">学习教育工具</h2>
+            <p class="section-description">AI驱动的个性化学习和教育辅助工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 教育工具1 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>D</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Duolingo AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI驱动的语言学习平台，提供个性化学习路径和实时对话练习，让语言学习更有趣且高效。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">语言学习</span>
+                        <span class="tool-tag">个性化教育</span>
+                        <span class="tool-tag">互动学习</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.duolingo.com" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.8</span></div>
+                        <div class="meta-item"><span>👁️</span><span>20k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育工具2 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>K</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Khan Academy AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge free">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">集成AI辅导功能的在线教育平台，提供个性化学习建议和即时答疑，覆盖多个学科领域。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">在线教育</span>
+                        <span class="tool-tag">学科辅导</span>
+                        <span class="tool-tag">免费资源</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.khanacademy.org" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.7</span></div>
+                        <div class="meta-item"><span>👁️</span><span>15k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育工具3 -->
+            <div class="tool-card">
+                <div class="badge new">新品</div>
+                <div class="card-header">
+                    <div class="tool-logo"><span>Q</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Querium</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI驱动的STEM学科辅导平台，提供个性化练习和实时反馈，帮助学生掌握数理化知识。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">STEM教育</span>
+                        <span class="tool-tag">个性化辅导</span>
+                        <span class="tool-tag">实时反馈</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.querium.com" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.6</span></div>
+                        <div class="meta-item"><span>👁️</span><span>8k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育工具4 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>C</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Century Tech</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI个性化学习平台，通过数据分析制定个性化学习计划，追踪学习进度，提供精准教学建议。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">自适应学习</span>
+                        <span class="tool-tag">数据分析</span>
+                        <span class="tool-tag">教育科技</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.century.tech" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.7</span></div>
+                        <div class="meta-item"><span>👁️</span><span>7k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育工具5 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>G</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Gradescope AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI辅助的作业评分平台，自动批改作业和试卷，提供详细的反馈和数据分析，提高教学效率。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">作业评分</span>
+                        <span class="tool-tag">教育评估</span>
+                        <span class="tool-tag">教学辅助</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.gradescope.com" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.5</span></div>
+                        <div class="meta-item"><span>👁️</span><span>6k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育工具6 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>P</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Photomath AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI数学解题助手，通过拍照识别数学题目，提供详细的解题步骤和解释，帮助学生理解数学概念。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">数学教育</span>
+                        <span class="tool-tag">解题辅助</span>
+                        <span class="tool-tag">移动学习</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://photomath.com" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.8</span></div>
+                        <div class="meta-item"><span>👁️</span><span>12k+</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="design" class="section-header">
+            <h2 class="section-title">设计工具</h2>
+            <p class="section-description">AI驱动的创意设计和视觉创作工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 设计工具1 -->
+            <div class="tool-card">
+                <div class="badge trending">趋势</div>
+                <div class="card-header">
+                    <div class="tool-logo"><span>F</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Figma AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">集成AI功能的设计协作平台，提供智能布局建议、自动生成组件和设计变体，提升设计效率。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">UI设计</span>
+                        <span class="tool-tag">协作</span>
+                        <span class="tool-tag">原型设计</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.figma.com" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.9</span></div>
+                        <div class="meta-item"><span>👁️</span><span>20k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设计工具2 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>S</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Spline AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI辅助的3D设计工具，简化3D建模和动画创作过程，支持实时渲染和Web端展示。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">3D设计</span>
+                        <span class="tool-tag">动画</span>
+                        <span class="tool-tag">Web3D</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://spline.design" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.7</span></div>
+                        <div class="meta-item"><span>👁️</span><span>10k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设计工具3 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>K</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Khroma AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge free">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI色彩设计工具，通过机器学习生成个性化配色方案，帮助设计师找到完美的色彩组合。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">配色工具</span>
+                        <span class="tool-tag">色彩设计</span>
+                        <span class="tool-tag">个性化</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="http://khroma.co" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.6</span></div>
+                        <div class="meta-item"><span>👁️</span><span>8k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设计工具4 -->
+            <div class="tool-card">
+                <div class="badge new">新品</div>
+                <div class="card-header">
+                    <div class="tool-logo"><span>U</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Uizard</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI驱动的UI设计平台，可将手绘草图转换为UI设计，自动生成多端适配的界面设计。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">UI设计</span>
+                        <span class="tool-tag">原型设计</span>
+                        <span class="tool-tag">自动生成</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://uizard.io" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.7</span></div>
+                        <div class="meta-item"><span>👁️</span><span>9k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设计工具5 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>B</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Brandmark</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI标志设计工具，自动生成专业的品牌标志设计，提供完整的品牌视觉识别系统。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">标志设计</span>
+                        <span class="tool-tag">品牌设计</span>
+                        <span class="tool-tag">视觉识别</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://brandmark.io" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.5</span></div>
+                        <div class="meta-item"><span>👁️</span><span>7k+</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设计工具6 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo"><span>R</span></div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Remove.bg</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI图像背景移除工具，一键去除图片背景，支持批量处理，适用于电商产品图和设计素材制作。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">图像处理</span>
+                        <span class="tool-tag">背景移除</span>
+                        <span class="tool-tag">设计辅助</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.remove.bg" class="visit-btn" target="_blank">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item"><span>⭐</span><span>4.8</span></div>
+                        <div class="meta-item"><span>👁️</span><span>15k+</span></div>
                     </div>
                 </div>
             </div>
@@ -2622,10 +2881,22 @@
             // 分类标签
             const categoryTabs = document.querySelectorAll('.category-tab');
             categoryTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
+                tab.addEventListener('click', function(e) {
                     categoryTabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-                    // 实际项目中这里会添加分类筛选逻辑
+                    
+                    // 平滑滚动到目标位置
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#all') {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ 
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
                 });
             });
             
