@@ -1,0 +1,2663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具导航 - 发现最实用的人工智能工具</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --border: #cbd5e1;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* 头部区域 */
+        .hero {
+            padding: 60px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 10px var(--shadow);
+            transition: all 0.3s;
+            outline: none;
+        }
+        
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        
+        .stat-number {
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        /* 筛选与分类 */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .filter-label {
+            font-weight: 600;
+            margin-right: 10px;
+            color: var(--dark);
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            background-color: white;
+            color: var(--gray);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .category-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .category-tabs::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category-tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            white-space: nowrap;
+            color: var(--gray);
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .category-tab.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .category-tab:hover:not(.active) {
+            color: var(--dark);
+        }
+        
+        /* 工具卡片 */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+        }
+        
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .tool-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background-color: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .tool-logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .tool-info {
+            flex-grow: 1;
+        }
+        
+        .tool-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        
+        .tool-pricing {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .pricing-badge {
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .free {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+        
+        .paid {
+            background-color: #fef9c3;
+            color: #ca8a04;
+        }
+        
+        .freemium {
+            background-color: #e0f2fe;
+            color: #0284c7;
+        }
+        
+        .card-body {
+            padding: 20px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tool-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .tool-tag {
+            padding: 4px 10px;
+            background-color: #f1f5f9;
+            color: var(--gray);
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+        
+        .card-actions {
+            padding: 15px 20px;
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .visit-btn {
+            padding: 8px 18px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .visit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .new {
+            background-color: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #dcfce7;
+        }
+        
+        .popular {
+            background-color: #fff7ed;
+            color: #ea580c;
+            border: 1px solid #fed7aa;
+        }
+        
+        .trending {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fee2e2;
+        }
+        
+        /* 区块标题 */
+        .section-header {
+            margin: 50px 0 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .section-description {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+        
+        /* 加载更多 */
+        .load-more {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0 50px;
+        }
+        
+        .load-more-btn {
+            padding: 12px 25px;
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .load-more-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: white;
+            border-top: 1px solid var(--border);
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-logo {
+            flex-basis: 250px;
+        }
+        
+        .footer-logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .footer-description {
+            color: var(--gray);
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--gray);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* 响应式布局 */
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .search-box button {
+                padding: 8px 15px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-box button {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <span class="logo-icon">🧠</span>
+                AI导航
+            </a>
+            <div class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">所有工具</a>
+                <a href="#">最新工具</a>
+                <a href="#">热门工具</a>
+                <a href="#">提交工具</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1 class="hero-title">发现最适合你的AI工具</h1>
+            <p class="hero-description">我们精选了50+优质AI工具，帮助你提高工作效率、激发创意、解决问题。</p>
+            
+            <div class="search-box">
+                <input type="text" placeholder="搜索AI工具...">
+                <button>搜索</button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span> AI工具
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span> 分类
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10000+</span> 月访问量
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="filters">
+            <span class="filter-label">筛选:</span>
+            <button class="filter-btn active">全部</button>
+            <button class="filter-btn">免费</button>
+            <button class="filter-btn">付费</button>
+            <button class="filter-btn">免费增值</button>
+            <button class="filter-btn">新品</button>
+            <button class="filter-btn">热门</button>
+        </div>
+        
+        <div class="category-tabs">
+            <div class="category-tab active">全部</div>
+            <div class="category-tab">聊天对话</div>
+            <div class="category-tab">图像生成</div>
+            <div class="category-tab">文本处理</div>
+            <div class="category-tab">视频创作</div>
+            <div class="category-tab">语音合成</div>
+            <div class="category-tab">开发工具</div>
+            <div class="category-tab">营销工具</div>
+            <div class="category-tab">设计工具</div>
+            <div class="category-tab">生产力</div>
+            <div class="category-tab">学习教育</div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">热门AI工具</h2>
+            <p class="section-description">这些是用户评价最高、使用最多的AI工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 1 -->
+            <div class="tool-card">
+                <div class="badge popular">热门</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>C</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">ChatGPT</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">OpenAI开发的强大AI聊天助手，能够理解和生成人类语言，帮助回答问题、创作内容、编写代码等。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">聊天对话</span>
+                        <span class="tool-tag">文本生成</span>
+                        <span class="tool-tag">内容创作</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.9</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>25k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2 -->
+            <div class="tool-card">
+                <div class="badge popular">热门</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>M</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Midjourney</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">顶级AI图像生成工具，通过文本描述创造高质量、艺术感强的图像，适合设计师、艺术家和创意工作者。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">图像生成</span>
+                        <span class="tool-tag">艺术创作</span>
+                        <span class="tool-tag">设计</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>18k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3 -->
+            <div class="tool-card">
+                <div class="badge trending">趋势</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>C</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Claude</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">Anthropic开发的AI助手，擅长长文本处理、复杂对话和创意写作，注重安全性和有用性。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">聊天对话</span>
+                        <span class="tool-tag">文本处理</span>
+                        <span class="tool-tag">内容创作</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>12k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>G</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Gemini</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">谷歌开发的多模态AI模型，可以理解并处理文本、图像、视频等多种格式的内容，融合强大的搜索能力。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">聊天对话</span>
+                        <span class="tool-tag">多模态</span>
+                        <span class="tool-tag">搜索</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>10k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 5 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>D</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">DALL-E 3</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">OpenAI的最新图像生成模型，可根据文本描述创建逼真和创意图像，具有更好的细节控制和准确性。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">图像生成</span>
+                        <span class="tool-tag">创意设计</span>
+                        <span class="tool-tag">艺术创作</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>15k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 6 -->
+            <div class="tool-card">
+                <div class="badge popular">热门</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>G</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">GitHub Copilot</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">OpenAI与GitHub合作开发的AI代码助手，可实时提供代码建议，提高编程效率，支持多种编程语言。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">代码辅助</span>
+                        <span class="tool-tag">开发工具</span>
+                        <span class="tool-tag">生产力</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.9</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>14k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">图像生成工具</h2>
+            <p class="section-description">将你的创意转化为视觉作品的AI工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 7 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>S</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Stable Diffusion</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge free">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">开源的文本到图像生成模型，可本地部署，具有高度自定义性，支持多种插件和扩展。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">图像生成</span>
+                        <span class="tool-tag">开源</span>
+                        <span class="tool-tag">本地部署</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>9k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 8 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>L</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Leonardo.ai</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">为创意专业人士设计的AI图像生成平台，提供多种风格和高度控制，适合游戏和媒体内容创作。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">图像生成</span>
+                        <span class="tool-tag">创意设计</span>
+                        <span class="tool-tag">游戏资产</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>7k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 9 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>R</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Runway</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI视频和图像创意工具平台，提供文本到视频生成、图像编辑和视觉特效功能，适合视频创作者。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">视频生成</span>
+                        <span class="tool-tag">图像编辑</span>
+                        <span class="tool-tag">视觉效果</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>8k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 10 -->
+            <div class="tool-card">
+                <div class="badge new">新品</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>F</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Firefly</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">Adobe推出的AI图像生成工具，集成在Creative Cloud生态系统中，为设计师和创意人员提供创意支持。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">图像生成</span>
+                        <span class="tool-tag">设计工具</span>
+                        <span class="tool-tag">Adobe</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>6k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 11 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>C</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Canva AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">Canva平台集成的AI设计工具，包括文本到图像生成、背景移除、图像扩展等功能，简化设计流程。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">设计工具</span>
+                        <span class="tool-tag">图像生成</span>
+                        <span class="tool-tag">营销素材</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>10k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 12 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>I</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Ideogram</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">专注于文字和排版的AI图像生成工具，可创建带有精美文字设计的图像，适合封面和海报设计。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">图像生成</span>
+                        <span class="tool-tag">文字设计</span>
+                        <span class="tool-tag">排版</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.4</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>5k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">视频创作工具</h2>
+            <p class="section-description">AI驱动的视频制作和编辑工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 13 -->
+            <div class="tool-card">
+                <div class="badge trending">趋势</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>S</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Synthesia</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI虚拟人视频生成平台，只需输入文本即可创建专业的演讲视频，支持多种语言和虚拟形象。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">视频创作</span>
+                        <span class="tool-tag">虚拟人</span>
+                        <span class="tool-tag">教育培训</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>7k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 14 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>D</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">D-ID</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI数字人视频创作平台，可将静态照片转换为会说话的视频，并提供多种面部表情和手势。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">视频创作</span>
+                        <span class="tool-tag">数字人</span>
+                        <span class="tool-tag">营销</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>6k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 15 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>L</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Lumen5</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI视频创作平台，可将博客文章和文本内容转换为社交媒体视频，提供模板和素材库。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">视频创作</span>
+                        <span class="tool-tag">社交媒体</span>
+                        <span class="tool-tag">内容营销</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.4</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>8k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 16 -->
+            <div class="tool-card">
+                <div class="badge new">新品</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>S</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Sora</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">OpenAI开发的文本到视频模型，可生成高质量、逼真的视频内容，具有出色的时间连贯性和物理特性。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">视频生成</span>
+                        <span class="tool-tag">文本到视频</span>
+                        <span class="tool-tag">创意内容</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.9</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>12k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 17 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>C</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">CapCut</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">集成AI功能的视频编辑工具，提供自动剪辑、背景去除、文本到语音等功能，适合社交媒体创作者。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">视频编辑</span>
+                        <span class="tool-tag">社交媒体</span>
+                        <span class="tool-tag">移动端</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>15k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 18 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>D</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Descript</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">全能型音视频编辑平台，提供AI转录、音频增强、语音克隆和文本编辑视频功能，适合播客和视频创作者。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">音视频编辑</span>
+                        <span class="tool-tag">播客</span>
+                        <span class="tool-tag">转录</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>7k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">内容创作工具</h2>
+            <p class="section-description">AI驱动的文本创作和编辑助手</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 19 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>J</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Jasper</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">专业AI内容创作平台，提供博客文章、社交媒体帖子、营销文案等内容生成，支持多种语言和风格。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">内容创作</span>
+                        <span class="tool-tag">营销</span>
+                        <span class="tool-tag">文案</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>9k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 20 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>C</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Copy.ai</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI文案工具，帮助快速生成各类营销和社交媒体内容，提供多种内容模板和创意建议。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">文案</span>
+                        <span class="tool-tag">营销</span>
+                        <span class="tool-tag">社交媒体</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>8k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 21 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>G</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Grammarly</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI写作助手，提供语法检查、风格建议、清晰度改进等功能，帮助提升文章质量和专业度。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">写作辅助</span>
+                        <span class="tool-tag">语法检查</span>
+                        <span class="tool-tag">校对</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>20k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 22 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>N</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Notion AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">集成在Notion中的AI写作助手，提供内容生成、摘要、改写和翻译等功能，提高工作效率。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">写作辅助</span>
+                        <span class="tool-tag">生产力</span>
+                        <span class="tool-tag">知识管理</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>12k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 23 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>Q</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Quillbot</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI改写和摘要工具，提供多种文本改写模式，帮助创建原创内容，避免抄袭，提高写作质量。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">改写</span>
+                        <span class="tool-tag">摘要</span>
+                        <span class="tool-tag">学术写作</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>11k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 24 -->
+            <div class="tool-card">
+                <div class="badge new">新品</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>W</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Writer</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">面向企业的AI写作平台，提供品牌声音一致性控制、协作功能和内容创建工具，确保企业内容质量。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">企业写作</span>
+                        <span class="tool-tag">品牌内容</span>
+                        <span class="tool-tag">团队协作</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>5k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">语音和音频工具</h2>
+            <p class="section-description">AI驱动的语音合成和音频处理工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 25 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>E</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">ElevenLabs</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">先进的AI语音合成平台，提供超逼真的语音生成，支持情感表达和声音克隆，多语言支持。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">语音合成</span>
+                        <span class="tool-tag">配音</span>
+                        <span class="tool-tag">声音克隆</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>9k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 26 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>M</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Murf.ai</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">专业AI语音生成器，提供自然逼真的声音，适用于配音、广告和教育内容，支持多种语言和口音。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">语音合成</span>
+                        <span class="tool-tag">配音</span>
+                        <span class="tool-tag">演示</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>7k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 27 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>P</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Play.ht</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI语音生成平台，提供700多种声音和多种语言，支持声音克隆，适用于播客、视频和有声内容。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">语音合成</span>
+                        <span class="tool-tag">有声书</span>
+                        <span class="tool-tag">播客</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>6k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 28 -->
+            <div class="tool-card">
+                <div class="badge trending">趋势</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>R</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Resemble.ai</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">企业级AI语音克隆和生成平台，允许创建自定义AI声音，适用于广告、游戏和内容制作。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">语音克隆</span>
+                        <span class="tool-tag">企业解决方案</span>
+                        <span class="tool-tag">API</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>5k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 29 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>S</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Speechify</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">文本转语音应用，将任何文本转换为自然语音，支持多种语言和声音，适用于学习和内容消费。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">文本转语音</span>
+                        <span class="tool-tag">辅助功能</span>
+                        <span class="tool-tag">学习工具</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>10k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 30 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>A</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Adobe Podcast</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">Adobe的AI音频处理工具，提供降噪、音质增强和录音转录功能，让任何人都能制作专业品质播客。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">音频处理</span>
+                        <span class="tool-tag">播客</span>
+                        <span class="tool-tag">降噪</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>7k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">开发工具</h2>
+            <p class="section-description">面向开发者的AI编程和自动化工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 31 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>H</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Hugging Face</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge free">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI模型开源平台，提供数千个预训练模型、数据集和应用，帮助开发者快速开发和部署AI应用。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">开发平台</span>
+                        <span class="tool-tag">开源</span>
+                        <span class="tool-tag">机器学习</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>15k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 32 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>R</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Replit</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">集成AI编码助手的在线IDE，提供代码生成、解释和调试功能，支持多种编程语言和协作。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">在线IDE</span>
+                        <span class="tool-tag">代码辅助</span>
+                        <span class="tool-tag">协作</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>11k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 33 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>T</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Tabnine</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI代码自动完成工具，支持多种编程语言和IDE，通过学习代码库提供上下文相关的代码建议。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">代码补全</span>
+                        <span class="tool-tag">IDE插件</span>
+                        <span class="tool-tag">开发工具</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>8k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 34 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>V</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Vercel AI SDK</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge free">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">面向前端开发者的AI集成工具包，简化AI功能在Web应用中的实现，支持流式响应和多种AI模型。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">开发工具</span>
+                        <span class="tool-tag">前端</span>
+                        <span class="tool-tag">React</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>7k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 35 -->
+            <div class="tool-card">
+                <div class="badge new">新品</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>L</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">LangChain</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge free">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">用于构建基于LLM的应用程序的框架，提供链接外部数据源、创建对话代理和构建智能系统的工具。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">开发框架</span>
+                        <span class="tool-tag">LLM</span>
+                        <span class="tool-tag">开源</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>10k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 36 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>P</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Pinecone</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">向量数据库服务，为AI应用提供高效的相似性搜索，是构建语义搜索、推荐系统和LLM应用的基础设施。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">向量数据库</span>
+                        <span class="tool-tag">LLM</span>
+                        <span class="tool-tag">检索增强</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>8k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">搜索和研究工具</h2>
+            <p class="section-description">AI驱动的信息获取和研究助手</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 37 -->
+            <div class="tool-card">
+                <div class="badge trending">趋势</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>P</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Perplexity AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI驱动的搜索引擎，提供具有引用来源的对话式回答，整合多个信息源帮助用户深入了解话题。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">搜索引擎</span>
+                        <span class="tool-tag">研究助手</span>
+                        <span class="tool-tag">信息获取</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>14k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 38 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>Y</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">You.com</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge free">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">集成AI聊天功能的搜索引擎，结合传统网页搜索和AI回答，提供个性化的搜索体验。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">搜索引擎</span>
+                        <span class="tool-tag">AI聊天</span>
+                        <span class="tool-tag">个性化</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>9k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 39 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>E</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Elicit</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI研究助手，帮助查找、分析和总结科学文献，自动生成摘要和关键结论，加速研究过程。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">研究工具</span>
+                        <span class="tool-tag">学术</span>
+                        <span class="tool-tag">文献分析</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>6k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 40 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>C</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Consensus</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI驱动的科学搜索引擎，汇总来自数百万学术文章的科学发现，并提供文章的关键结论。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">科学研究</span>
+                        <span class="tool-tag">学术搜索</span>
+                        <span class="tool-tag">文献综述</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>5k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">商业和营销工具</h2>
+            <p class="section-description">提升业务运营和营销效率的AI工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 41 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>A</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Adcreative.ai</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI广告创意生成平台，自动创建各种广告格式的文案和图像，提高营销活动转化率。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">广告创意</span>
+                        <span class="tool-tag">营销</span>
+                        <span class="tool-tag">转化率优化</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>6k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 42 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>C</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Copy.ai</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI文案工具，帮助快速生成各类营销和社交媒体内容，提供多种内容模板和创意建议。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">文案</span>
+                        <span class="tool-tag">营销</span>
+                        <span class="tool-tag">社交媒体</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>8k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 43 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>F</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Frase</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI内容优化平台，提供SEO研究、内容创建和优化建议，帮助提高网站内容排名和质量。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">SEO</span>
+                        <span class="tool-tag">内容营销</span>
+                        <span class="tool-tag">内容创作</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>7k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 44 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>S</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">SurferSEO</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">集成AI功能的SEO优化工具，提供内容规划、关键词研究和内容优化建议，提高网站排名。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">SEO</span>
+                        <span class="tool-tag">内容分析</span>
+                        <span class="tool-tag">关键词</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>8k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-header">
+            <h2 class="section-title">生产力工具</h2>
+            <p class="section-description">提高个人和团队工作效率的AI工具</p>
+        </div>
+        
+        <div class="tools-grid">
+            <!-- 45 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>O</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Otter.ai</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI会议记录和转录工具，自动记录会议内容，生成摘要和关键点，提高会议效率。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">会议记录</span>
+                        <span class="tool-tag">转录</span>
+                        <span class="tool-tag">团队协作</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>9k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 46 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>T</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Taskade</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI驱动的项目管理和协作工具，提供任务管理、笔记和实时协作功能，集成AI助手辅助工作。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">项目管理</span>
+                        <span class="tool-tag">团队协作</span>
+                        <span class="tool-tag">任务管理</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.5</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>7k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 47 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>M</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Motion</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI日程规划助手，自动安排任务和会议，优化时间管理，提高工作效率和专注度。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">时间管理</span>
+                        <span class="tool-tag">日程安排</span>
+                        <span class="tool-tag">生产力</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>6k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 48 -->
+            <div class="tool-card">
+                <div class="badge new">新品</div>
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>R</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">Raycast AI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">Mac平台上的AI增强启动器，通过自然语言快速执行任务、查找信息和创建内容，提高工作效率。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">生产力</span>
+                        <span class="tool-tag">工具集成</span>
+                        <span class="tool-tag">Mac应用</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.8</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>5k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 49 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>N</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">NotionAI</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge paid">付费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">集成在Notion中的AI写作助手，提供内容生成、摘要、改写和翻译等功能，提高工作效率。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">写作辅助</span>
+                        <span class="tool-tag">生产力</span>
+                        <span class="tool-tag">知识管理</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.7</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>12k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 50 -->
+            <div class="tool-card">
+                <div class="card-header">
+                    <div class="tool-logo">
+                        <span>D</span>
+                    </div>
+                    <div class="tool-info">
+                        <h3 class="tool-name">DeepL Write</h3>
+                        <div class="tool-pricing">
+                            <span class="pricing-badge freemium">免费增值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="tool-description">AI写作辅助工具，帮助改进文本的语法、风格和清晰度，支持多种语言，适合非母语使用者。</p>
+                    <div class="tool-tags">
+                        <span class="tool-tag">写作辅助</span>
+                        <span class="tool-tag">语言校对</span>
+                        <span class="tool-tag">多语言</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="visit-btn">访问网站</a>
+                    <div class="card-meta">
+                        <div class="meta-item">
+                            <span>⭐</span>
+                            <span>4.6</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>👁️</span>
+                            <span>9k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="load-more">
+            <button class="load-more-btn">加载更多工具</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#">
+                        <span class="logo-icon">🧠</span>
+                        AI导航
+                    </a>
+                    <p class="footer-description">发现最佳AI工具，提升工作效率，激发创意，解决问题。</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>关于我们</h3>
+                        <ul>
+                            <li><a href="#">关于AI导航</a></li>
+                            <li><a href="#">联系我们</a></li>
+                            <li><a href="#">提交工具</a></li>
+                            <li><a href="#">给我们反馈</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>资源</h3>
+                        <ul>
+                            <li><a href="#">AI工具分类</a></li>
+                            <li><a href="#">最新工具</a></li>
+                            <li><a href="#">AI工具博客</a></li>
+                            <li><a href="#">使用指南</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>法律</h3>
+                        <ul>
+                            <li><a href="#">隐私政策</a></li>
+                            <li><a href="#">使用条款</a></li>
+                            <li><a href="#">免责声明</a></li>
+                            <li><a href="#">Cookie政策</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 AI导航. 版权所有.</p>
+                <div class="social-links">
+                    <a href="#">微博</a>
+                    <a href="#">微信</a>
+                    <a href="#">知乎</a>
+                    <a href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的分类筛选与交互功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 筛选按钮
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    // 实际项目中这里会添加筛选逻辑
+                });
+            });
+            
+            // 分类标签
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    // 实际项目中这里会添加分类筛选逻辑
+                });
+            });
+            
+            // 搜索功能
+            const searchInput = document.querySelector('.search-box input');
+            const searchBtn = document.querySelector('.search-box button');
+            
+            searchBtn.addEventListener('click', function() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    // 实际搜索逻辑
+                    console.log('搜索:', searchTerm);
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchBtn.click();
+                }
+            });
+            
+            // 加载更多按钮
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            loadMoreBtn.addEventListener('click', function() {
+                // 实际项目中这里会加载更多工具
+                this.textContent = '正在加载...';
+                setTimeout(() => {
+                    this.textContent = '没有更多工具了';
+                    this.disabled = true;
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
